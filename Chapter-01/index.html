@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste React</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Hello Top of Root</h1>
+    <div id="root">
+        <h1>Ekansh is here</h1> <!-- This will be replaced when React code will be rendered-->
+
+    </div>
+    <h1>Hello Bottom of Root</h1>
+
+    <!-- <script>
+        const heading = document.createElement('h1');
+        heading.innerHTML = "Hello World from Javascript!";
+        const root = document.getElementById('root');
+        root.appendChild(heading);
+    </script> -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- <script>
+        const heading = React.createElement("h1",{},"Hello World from React");
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(heading);
+    </script> -->
+    <script src="./App.js"></script> <!-- Order matters if this is used before importing reactg then it will not render anything-->
+</body>
+</html>
