@@ -1,10 +1,10 @@
 React is a library a small part of web page can be updated using react also
 
-Q1 - What is Emmet?
+ # Q1 - What is Emmet?
 
 Emmet is a web development tool that allows developers to write HTML and CSS code faster and more efficiently. It's essentially a set of plugins for various text editors and IDEs that enables users to write shorthand abbreviations, called "emmet abbreviations," and expand them into full HTML or CSS code snippets. This can greatly speed up the coding process by reducing the amount of typing required and providing shortcuts for commonly used code patterns. Emmet is widely used in the web development community and is available as a plugin for popular code editors like Visual Studio Code, Sublime Text, and Atom. for eg html:5 expands int boilerplate HTML code 
 
-Q2 - Difference between a Library and Framework?
+ # Q2 - Difference between a Library and Framework?
 
 Library:
 
@@ -27,7 +27,7 @@ Django (Python web framework for building web applications)
 Angular (JavaScript framework for building web applications)
 Spring (Java framework for building enterprise applications)
 
-Q3 - What is CDN? Why do we use it?
+# Q3 - What is CDN? Why do we use it?
 
 A Content Delivery Network (CDN) is a network of distributed servers strategically located across various geographical locations. Its purpose is to deliver web content, such as images, videos, CSS files, JavaScript files, and other static assets, to users more efficiently and reliably.
 
@@ -40,7 +40,7 @@ Bandwidth Savings: By offloading the delivery of static content to the CDN, you 
 Global Reach: CDNs have a global network of servers, allowing content to be delivered quickly to users worldwide. This is particularly beneficial for websites with a global audience, as it ensures consistent performance regardless of the user's location.
 Overall, CDNs help to optimize website performance, enhance scalability and reliability, reduce server load, and improve the user experience by delivering content faster and more efficiently.
 
-Q4 - Why is React known as React?
+# Q4 - Why is React known as React?
 
 React is known as "React" because of its core concept of reactive, or responsive, user interfaces. The name "React" originates from how the library fundamentally works: by reacting to changes in data and efficiently updating the user interface.
 
@@ -48,7 +48,7 @@ When data changes in a React application, the user interface automatically re-re
 
 So, the name "React" emphasizes the library's approach of reacting to data changes and efficiently updating the UI, making it suitable for building highly interactive and responsive web applications.
 
-Q5 - What is crossorigin in script tag?
+# Q5 - What is crossorigin in script tag?
 
 
 The crossorigin attribute in the <script> tag is used to specify how the browser should handle requests for scripts that are loaded from a different origin (i.e., a different domain, protocol, or port) than the current document.
@@ -60,7 +60,7 @@ The crossorigin attribute provides options for handling scripts loaded from diff
 Anonymous: This is the default behavior if the crossorigin attribute is not specified. With the anonymous value, the browser loads the script without including any credentials (such as cookies or HTTP authentication). This means that the script is treated as coming from an "anonymous" origin, and it has limited access to resources on the page.
 Use Credentials: If the script requires credentials to be included (such as cookies or HTTP authentication) when making requests to the server, you can specify crossorigin="use-credentials". This tells the browser to include credentials with the requests made by the script.
 
-Q6 - What is diference between React and ReactDOM ?
+# Q6 - What is diference between React and ReactDOM ?
 
 React:
 
@@ -75,7 +75,7 @@ ReactDOM is a package specifically designed for rendering React components into 
 It serves as the glue between React components and the browser's DOM, allowing React to interact with the actual HTML elements on the page.
 ReactDOM provides methods for rendering React components, updating the DOM in response to changes in component state, and handling events.
 
-Q7 - What is difference between react.development.js and react.production.js files via CDN?
+# Q7 - What is difference between react.development.js and react.production.js files via CDN?
 
 react.development.js:
 
@@ -92,7 +92,7 @@ It is recommended to use react.production.js in production environments to ensur
 While the production version lacks the debugging features present in the development version, it is optimized for efficiency and is suitable for use in production deployments where performance is critical.
 
 
-Q8 - What is async and defer?
+# Q8 - What is async and defer?
 
 async and defer are attributes that can be used with the <script> tag in HTML to control how scripts are loaded and executed in web pages.
 
