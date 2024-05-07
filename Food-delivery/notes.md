@@ -17,3 +17,22 @@ we will not use unique key on adding a new elemenent all the elements will be re
           }
 
           not using key(unaceeptable) <<<<<<<<<<<<<< using indexes as key <<<<<<<<<<<<<< using unique key
+
+
+# Two Types of Exports          
+
+- Default Export/Import (When we have to export single component in a file)
+
+export default Component
+import Component from "path";
+
+- Named Export/Import (when we have to export more than one components from a single file)
+
+export const Component
+import {Component} from "path;
+
+# React Hooks
+(Normal JS Utility Functions)
+
+- useState() - SuperPowerful State Variables in React
+- useEffect() - 
