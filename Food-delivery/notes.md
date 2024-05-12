@@ -54,4 +54,10 @@ Even though useState is called again on every render, React maintains the state 
 
 So, while useState(false) is called each time the component renders, React internally handles the preservation of state values across renders. This mechanism allows React components to reflect state changes accurately and efficiently without losing state between renders.
 
-
+# useEffect 
+- No dependency array
+when useEffect is called without passing dependency array useEffect is called each time the component is rendered
+- If empty dependency array
+when useEffect is called with empty dependency array the useEffect is called only after first render (only once) not again and again
+- If Dependency araay contains a variable
+when UseEffect is called with dependency array containing an varibale then each time that varibale(dependency) changes useEffect will be called
