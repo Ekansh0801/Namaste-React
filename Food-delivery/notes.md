@@ -61,3 +61,86 @@ when useEffect is called without passing dependency array useEffect is called ea
 when useEffect is called with empty dependency array the useEffect is called only after first render (only once) not again and again
 - If Dependency araay contains a variable
 when UseEffect is called with dependency array containing an varibale then each time that varibale(dependency) changes useEffect will be called
+
+# Custom Hooks
+the main goal of a react component is to just render what we want to show on the page so the code of that component must only contain the rendering code and hence we dont need to show api calls in the same file so to increase readibility we uses custom hooks for doing these extra things outside out component file 
+
+- code
+import { useState, useEffect } from 'react';
+ - Example 1
+const useRestaurantList = () => {
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+
+  useEffect(() => {
+    fetchData();
+  },[]);
+
+  const fetchData = async () => {
+    try {
+      const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3222028&lng=77.3410569&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+      const json = await data.json();
+      console.log(json);
+      const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+      if (restaurants) {
+        setListOfRestaurants(restaurants);
+        setFilteredRestaurant(restaurants);
+        setLoading(false); // Update loading state when data is fetched
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  return {
+    listOfRestaurants,
+    filteredRestaurant,
+    setFilteredRestaurant,
+    loading // Return loading state
+  };
+};
+
+export default useRestaurantList;
+
+- Example 2
+
+import { useEffect, useState } from "react";
+
+const useRestaurantMenu = (resId) => {
+
+    const [resInfo,setResInfo] = useState(null);
+
+    //fetch data
+    useEffect(() => {
+        fetchData();
+    },[])
+
+     const fetchData = async() => {
+        const data = await fetch('https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.3381968&lng=77.33973139999999&restaurantId='+resId+'&catalog_qa=undefined&isMenuUx4=true&submitAction=ENTER');
+        const json = await data.json(); 
+        setResInfo(json.data);       
+    }
+
+    return resInfo;
+}
+
+export default useRestaurantMenu
+
+# Optimization
+when the website is build for production the whole js compnents load and combine in a single file this will eventually increase the size of bundle 
+and will make our website slow so we use the concept of az loading to avoid this the compnent when reuired only then is called this created different bundles nt increasing burden on just one eventually making it fast
+- code 
+
+import React,{lazy,Suspense} from "react";
+
+const Grocery = lazy(() => import("./Components/Grocery"));
+
+            {
+                path:"/grocery",
+                element:
+                    <Suspense fallback = {<Shimmer/>}>
+                        <Grocery/>
+                    </Suspense>
+            },
