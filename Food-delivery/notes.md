@@ -74,7 +74,8 @@ const useRestaurantList = () => {
   const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
-    fetchData();
+    fetchData(); 
+    
   },[]);
 
   const fetchData = async () => {
@@ -144,3 +145,80 @@ const Grocery = lazy(() => import("./Components/Grocery"));
                         <Grocery/>
                     </Suspense>
             },
+
+# High order functions
+export const withPromotedLabel = (RestaurantCard) => {
+    return (props) => {
+        return(
+            <div>
+            <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Promoted</label>
+            <RestaurantCard {...props}/>                
+            </div>
+        )
+    }
+}
+
+# controleed component and state lifting
+
+import { useState } from "react";
+import ItemList from "./ItemList";
+
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
+  const handleClick = () => {
+    setShowIndex(); // Toggle the showIndex state to expand or collapse the category
+
+  };
+
+  return (
+    <div>
+      <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
+        {/* Category Header */}
+        <div
+          className="flex justify-between cursor-pointer"
+          onClick={handleClick} // Call handleClick to toggle showIndex
+        >
+          <span className="font-bold text-lg">{data.title} ({data.itemCards.length})</span>
+          <span>{showItems ? "⬆" : "⬇"}</span>
+        </div>
+        {/* Category Body */}
+        {showItems && <ItemList items={data.itemCards} />}
+      </div>
+    </div>
+  );
+};
+
+export default RestaurantCategory;
+
+        {/* {accordian} */}
+        {/* //controlled component */}
+        {categories.map((category,index) => (<RestaurantCategory key={category?.card?.card?.title} data = {category?.card.card} showItems={index === showIndex && true} setShowIndex={() => setShowIndex(index)}/>))}
+
+# Context API
+        import { createContext } from "react";
+
+const UserContext = createContext({
+    loggedInUser:"Default User",
+
+})
+
+export default UserContext
+
+
+    const [userName,setUserName] = useState();
+
+    useEffect(() => {
+        const data = {
+            name:"Ekansh Aggarwal",
+        }
+        setUserName(data.name);
+    },[])
+    return (
+        <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+        <div className="app">
+            {/* Header */}
+            <Header/>
+            {/* Body */}
+            <Outlet/>
+            {/* Footer */}
+        </div>            
+        </UserContext.Provider>
