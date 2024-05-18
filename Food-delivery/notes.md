@@ -222,3 +222,25 @@ export default UserContext
             {/* Footer */}
         </div>            
         </UserContext.Provider>
+
+# Redux
+redux is not manatory and redux is different library from react
+        redux is a big centralized object kept in a central position we kept major portion of data in redux store 
+        and there is no problem in keeping big volume of data in redux store and the redux store not become too much clumsy and big 
+        we keep data in small slices
+
+# Write data in redux store
+* when we click add(add to cart) button it dispatches an action which calls a function(reducer function) which updates the slice of redux store
+# Read data from redux store
+* we use a selector to read data from redux srote and this selector update react component(eg cart component)
+* using selector phenomenon is known as subscribing to store
+
+![alt text](image-2.png)
+
+# Building a Redux store
+- install @reduxjs/toolkit and react-redux
+- Build a store
+- Connect the store to our app
+- Slice(cart slice)
+- Dispatch action
+- Selector
